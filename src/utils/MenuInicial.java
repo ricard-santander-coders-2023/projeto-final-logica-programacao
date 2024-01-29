@@ -7,13 +7,12 @@ import static utils.AcaoMenu.executaAcaoMenu;
 public class MenuInicial {
     static public void menu() {
         Scanner sc = new Scanner(System.in);
+        Agenda.Contato.exibirContatos();
         String menuText = """
                 >>>> Menu <<<<
                 1 - Adicionar Contato
                 2 - Remover Contato
-                3 - Visualizar Contato
-                4 - Editar Contato
-                5 - Mostrar Contatos
+                3 - Editar Contato
                 0 - Sair
                 """;
 
@@ -29,7 +28,7 @@ public class MenuInicial {
                 executaAcaoMenu(option);
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida.");
-                System.out.println("Digite um número de 0 a 5!");
+                System.out.println("Digite um número de 1 a 3 (zero (0) para sair!");
                 sc.nextLine();
             } catch (Exception e) {
                 System.out.println("Ocorreu um erro: " + e.getMessage());
