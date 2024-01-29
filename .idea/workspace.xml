@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5d824569-9d83-4bc8-b5d7-585c4a3a2dc4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Agenda/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agenda/Contato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Agenda/Telefone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dto/FileUtilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dto/FileUtilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agenda/Contato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agenda/Contato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/AcaoMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AcaoMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/MenuInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/MenuInicial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/OpcoesMenu.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

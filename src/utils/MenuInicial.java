@@ -7,7 +7,7 @@ import static utils.AcaoMenu.executaAcaoMenu;
 public class MenuInicial {
     static public void menu() {
         Scanner sc = new Scanner(System.in);
-        Agenda.Contato.exibirContatos();
+        agenda.Contato.exibirContatos();
         String menuText = """
                 >>>> Menu <<<<
                 1 - Adicionar Contato
