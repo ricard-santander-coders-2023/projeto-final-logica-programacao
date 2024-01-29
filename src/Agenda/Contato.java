@@ -42,14 +42,38 @@ public class Contato {
     }
 
     public static void adicionarContato(Contato contato) throws IOException {
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter(PATH_CONTATO, true));
-            writer.println(contato.getId() + "|" + contato.getNome() + "|" + contato.getSobrenome() + "|" + contato.getTelefone());
-            writer.close();
+        long proximoId = obterProximoIdDisponivel();
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_CONTATO, true))) {
+            writer.println(proximoId + "|" + contato.getNome() + "|" + contato.getSobrenome() + "|" + contato.getTelefone());
             System.out.println("Contato adicionado com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();
+            throw e;
         }
+    }
+
+    private static long obterProximoIdDisponivel() throws IOException {
+        long proximoId = 1;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(PATH_CONTATO))) {
+            String linha;
+
+            while ((linha = reader.readLine()) != null) {
+                String[] partes = linha.split("\\|");
+                long idContato = Long.parseLong(partes[0]);
+
+                // Atualiza o próximo ID disponível se o ID atual for maior
+                if (idContato >= proximoId) {
+                    proximoId = idContato + 1;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return proximoId;
     }
 
     public static void removeContato(Long id) throws IOException {
