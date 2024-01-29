@@ -63,7 +63,6 @@ public class Contato {
                 String[] partes = linha.split("\\|");
                 long idContato = Long.parseLong(partes[0]);
 
-                // Atualiza o próximo ID disponível se o ID atual for maior
                 if (idContato >= proximoId) {
                     proximoId = idContato + 1;
                 }
