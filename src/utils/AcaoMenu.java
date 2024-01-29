@@ -15,10 +15,14 @@ public class AcaoMenu {
                 String nome = scanner.nextLine();
                 System.out.print("Sobrenome: ");
                 String sobrenome = scanner.nextLine();
-                System.out.print("Telefone: ");
-                String telefone = scanner.nextLine();
-                Contato contato = new Contato(Contato.getId(), nome, sobrenome, telefone);
-                Contato.adicionarContato(contato);
+
+                Contato contato = new Contato(Contato.getId(), nome, sobrenome, "");
+
+                try {
+                    Contato.adicionarContato(contato);
+                } catch (IOException e) {
+                    System.out.println("Erro ao adicionar contato: " + e.getMessage());
+                }
                 break;
             case 2:
                 System.out.println("Remover Contato:");

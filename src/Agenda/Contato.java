@@ -41,7 +41,39 @@ public class Contato {
         return telefone;
     }
 
+    public static void setId(Long id) {
+        Contato.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     public static void adicionarContato(Contato contato) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        String telefone;
+        boolean telefoneValido = false;
+
+        while (!telefoneValido) {
+            System.out.print("Telefone: ");
+            telefone = scanner.nextLine();
+
+            if (telefoneJaExiste(telefone)) {
+                System.out.println("Este telefone já está sendo utilizado.");
+            } else {
+                contato.setTelefone(telefone);
+                telefoneValido = true;
+            }
+        }
+
         long proximoId = obterProximoIdDisponivel();
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(PATH_CONTATO, true))) {
@@ -101,6 +133,25 @@ public class Contato {
         }
 
         System.out.println("Contato removido com sucesso.");
+    }
+
+    private static boolean telefoneJaExiste(String telefone) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(PATH_CONTATO))) {
+            String linha;
+
+            while ((linha = reader.readLine()) != null) {
+                String[] partes = linha.split("\\|");
+                String telefoneExistente = partes[3];
+
+                if (telefoneExistente.equals(telefone)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw e;
+        }
+        return false;
     }
 
     public static void editarContato(Long idEditar) throws IOException {
